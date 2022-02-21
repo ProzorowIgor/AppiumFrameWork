@@ -1,8 +1,11 @@
+package androidTesting;
+
+import androidTesting.Base;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-public class DragAndDrop extends Base{
+public class DragAndDrop extends Base {
 
     @Test
     public void dragAnddropTest() throws MalformedURLException{

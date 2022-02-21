@@ -1,3 +1,5 @@
+package androidTesting;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -17,12 +19,17 @@ public class Base {
 
    /* @Test
     public void setUp() throws MalformedURLException {*/
-    public static AndroidDriver<AndroidElement> capabilities() throws MalformedURLException {
+    public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
         DesiredCapabilities cap = new DesiredCapabilities();
         File appDir = new File("src/test/resources");
         File app = new File(appDir, "ApiDemos-debug.apk");
 
-        cap.setCapability(MobileCapabilityType.DEVICE_NAME, "2XL_API_30");
+        if(device.equals("emulator")) {
+            cap.setCapability(MobileCapabilityType.DEVICE_NAME, "2XL_API_30");
+        }
+        else if (device.equals("real")){
+            cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
+        }
         cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");//new step
         cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
 

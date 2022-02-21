@@ -1,3 +1,6 @@
+package androidTesting;
+
+import androidTesting.Base;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -16,7 +19,7 @@ public class SwipeBasic extends Base {
     @Test
     public void SwipeTest() throws MalformedURLException {
         // TODO Auto-generated method stub
-        AndroidDriver<AndroidElement> driver = capabilities();
+        AndroidDriver<AndroidElement> driver = capabilities("emulator");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElementByXPath("//android.widget.TextView[@text='Views']").click();
         driver.findElementByXPath("//android.widget.TextView[@text='Date Widgets']").click();
