@@ -7,7 +7,9 @@ import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
@@ -17,9 +19,10 @@ import static java.time.Duration.ofSeconds;
 
 public class Gestures extends Base {
 
+
     // public static void main(String[] args) throws MalformedURLException {
     @Test
-    public void test() throws MalformedURLException {
+    public void test() throws IOException, InterruptedException {
         // TODO Auto-generated method stub
         AndroidDriver<AndroidElement> driver = capabilities("emulator");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

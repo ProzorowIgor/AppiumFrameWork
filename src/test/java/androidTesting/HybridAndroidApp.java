@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.security.Key;
 import java.util.Set;
@@ -22,7 +23,7 @@ import static io.appium.java_client.touch.offset.ElementOption.element;
 public class HybridAndroidApp extends TestBaseForEcommerce {
 
     @Test
-    public void appAndWebCollaboration() throws MalformedURLException, InterruptedException {
+    public void appAndWebCollaboration() throws IOException, InterruptedException {
         AndroidDriver<AndroidElement> driver = TestBaseForEcommerce.capabilities("emulator");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Hello");

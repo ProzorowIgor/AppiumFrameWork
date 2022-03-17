@@ -6,6 +6,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -13,13 +14,15 @@ public class TestBaseForEcommerce {
     AndroidDriver<AndroidElement> driver;
 
 
-    public static AndroidDriver<AndroidElement> capabilities(String device) throws MalformedURLException {
+    public static AndroidDriver<AndroidElement> capabilities(String device) throws IOException, InterruptedException {
         DesiredCapabilities cap = new DesiredCapabilities();
         File appDir = new File("src/test/resources");
         File app = new File(appDir, "General-Store.apk");
 
         if(device.equals("emulator")) {
-            cap.setCapability(MobileCapabilityType.DEVICE_NAME, "2XL_API_30");
+            startEmulator();
+            Thread.sleep(15000);
+            cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Pix");
         }
         else if (device.equals("real")){
             cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
@@ -34,4 +37,10 @@ public class TestBaseForEcommerce {
         //driver.findElement(By.xpath("//android.widget.TextView[@content-desc='Preference']")).click();
         return driver;
     }
+    public static void startEmulator() throws IOException, InterruptedException
+    {
+        Runtime.getRuntime().exec("src/test/resources/NewPixel.bat");
+        Thread.sleep(15000);
+    }
+
 }

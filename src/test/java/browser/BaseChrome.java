@@ -13,7 +13,7 @@ public class BaseChrome {
     public static AndroidDriver<AndroidElement> capabilities() throws MalformedURLException {
         AndroidDriver<AndroidElement> driver;
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "2XL_API_30");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Pix");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");//new step
         capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
         capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT,10);
