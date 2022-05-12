@@ -27,7 +27,7 @@ public class Base {
     /*public AppiumDriverLocalService startServer()
     {
         //
-        boolean flag=	checkIfServerIsRunnning(4723);
+        boolean flag = сheckIfServerIsRunnning(4723);
         if(!flag)
         {
             service=AppiumDriverLocalService.buildDefaultService();
